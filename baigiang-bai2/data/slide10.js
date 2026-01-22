@@ -1,0 +1,12 @@
+(function(){var loadHandler=window['sl_{D0936957-18C0-4D3E-B8DD-EE27D0607CCC}'];loadHandler&&loadHandler(9, '<div id="spr0_165931"><div id="spr1_165931" class="kern slide"><img id="img4_165931" src="data/img0.png" width="720px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_165931" class="kern slide"><div id="svg0_165931" style="left:29.625px;top:22.13px;"><svg width="656" height="42" viewBox="-0.375 -0.375 656 42"><path fill="#f7fd9d" stroke="#f4f207" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="round" d="M0.375,0.375 h653.625 v39.727 h-653.625 Z"/></svg></div><div id="spr3_165931" style="left:38px;top:28px;"><img id="img0_165931" src="data/img11.png" width="587" height="26" alt="Ví dụ 3. Tìm cực trị của hàm số 𝑓 𝑥 = 𝑥 3 −3 𝑥 2 +3𝑥−4."/></div><div id="spr4_165931" style="left:31.55px;top:73.162px;"><div id="svg1_165931" style="left:-0.75px;top:-0.75px;"><svg width="654" height="287" viewBox="-0.375 -0.375 654 287"><path fill="#f7fd9d" stroke="#f4f207" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="round" d="M0.375,0.375 h652.45 v284.875 h-652.45 Z"/></svg></div><div id="spr5_165931" style="left:7.45px;top:5.838px;"><img id="img1_165931" src="data/img12.png" width="410" height="277" alt="Giải: Hàm số 𝑓 𝑥 = 𝑥 3 −3 𝑥 2 +3𝑥−4.\
+Tập xác định: 𝐷=ℝ.\
+Ta có:  𝑓 ′  𝑥 =3 𝑥 2 −6𝑥+3;\
+ 𝑓 ′  𝑥 =0⇔𝑥=1.\
+Bảng biến thiên:\
+\
+\
+\
+Vậy hàm số không có cực trị.\
+"/></div><div id="spr6_165931" style="left:177.587px;top:142.437px;"><img id="img2_165931" src="data/img13.png" width="399" height="111" alt="" style="left:-0.135px;top:0.165px;"/></div></div><div id="svg2_165931" style="left:29.2px;top:368.123px;"><svg width="655" height="153" viewBox="0 0 655 153"><path fill="#f7fd9d" d="M0,0 h654.8 v152.677 h-654.8 Z"/></svg></div><div id="spr7_165931" style="left:37px;top:379px;"><img id="img3_165931" src="data/img14.png" width="640" height="136" alt="Chú ý: \
+- Nếu  𝑓 ′  𝑥 =0 nhưng không đổi dấu khi x qua điểm  𝑥 𝑖   𝑖=1,2,…  thì hàm số không có cực trị tại  𝑥 𝑖 .\
+- Nếu  𝑓 ′  𝑥  không đổi dấu trên khoảng 𝐾 thì 𝑓 𝑥  không có cực trị trên khoảng đó."/></div></div></div>', '{"s":[]}');})();

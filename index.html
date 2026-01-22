@@ -19,13 +19,7 @@
         .btn{padding:10px 20px;background:var(--p);color:white;border:none;border-radius:6px;font-weight:bold;cursor:pointer;transition:0.2s}
         .btn:hover{opacity:0.9}.btn:active{transform:scale(0.95)}
         
-        /* NÚT GOOGLE (CẬP NHẬT MỚI - SVG NHÚNG) */
-        .google-btn {
-            display: flex; align-items: center; justify-content: center;
-            background: white; border: 1px solid #ccc; color: #333;
-            width: 100%; margin-top: 15px; padding: 10px; border-radius: 6px;
-            cursor: pointer; font-weight: 500; transition: 0.2s;
-        }
+        .google-btn { display: flex; align-items: center; justify-content: center; background: white; border: 1px solid #ccc; color: #333; width: 100%; margin-top: 15px; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: 500; transition: 0.2s; }
         .google-btn:hover { background: #f8f9fa; border-color: #bbb; }
         .g-icon { width: 18px; height: 18px; margin-right: 10px; }
 
@@ -40,7 +34,6 @@
         .nav-btn{padding:8px 16px;border:none;background:#f0f0f0;border-radius:20px;cursor:pointer;font-weight:600;color:#666}
         .nav-btn.active{background:var(--p);color:white}
 
-        /* MAIN LAYOUT */
         #main-app{display:none;flex-direction:column;height:100%}
         .container{flex:1;overflow-y:auto;padding:20px;max-width:1200px;margin:0 auto;width:100%;box-sizing:border-box}
         .section{display:none;height:100%}.section.active{display:block}
@@ -54,6 +47,24 @@
         .lecture-viewer{flex:3;min-width:300px;background:#000;border-radius:8px;overflow:hidden;height:100%;min-height:400px;position:relative}
         .lecture-iframe{width:100%;height:100%;border:none}
         .lecture-placeholder{display:flex;justify-content:center;align-items:center;height:100%;color:white;flex-direction:column}
+
+        /* TÀI LIỆU & INFOGRAPHIC */
+        .doc-section { margin-bottom: 30px; }
+        .doc-header { font-size: 1.2rem; font-weight: bold; border-bottom: 2px solid var(--p); padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--txt); }
+        .chapter-title { font-weight: bold; font-size: 1.1rem; color: #1e40af; margin: 15px 0 10px 0; background: #dbeafe; padding: 8px 12px; border-radius: 6px; border-left: 4px solid #1e40af; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; padding: 10px 0; }
+        .info-card { background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer; position: relative; }
+        .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--p); }
+        .info-img { width: 100%; height: 140px; object-fit: cover; background: #f0f0f0; border-bottom: 1px solid #eee; }
+        .info-title { padding: 10px; font-weight: 600; font-size: 0.9rem; text-align: center; color: #333; }
+        .info-tag { position: absolute; top: 10px; right: 10px; background: rgba(37,99,235,0.9); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+
+        /* LIGHTBOX (XEM ẢNH) */
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: none; justify-content: center; align-items: center; flex-direction: column; }
+        #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 4px; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        #lightbox-close { color: white; font-size: 40px; position: absolute; top: 20px; right: 30px; cursor: pointer; }
+        #lightbox-caption { color: white; margin-top: 15px; font-size: 1.2rem; font-weight: bold; }
 
         /* QUIZ CARD */
         .q-card{background:white;padding:30px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);min-height:300px;display:flex;flex-direction:column;justify-content:center;font-family:'Times New Roman',serif;font-size:1.15rem;line-height:1.5}
@@ -73,7 +84,7 @@
         .short-inp{width:100%;padding:15px;font-size:1.1rem;border:2px solid #e5e7eb;border-radius:8px;margin-top:10px;box-sizing:border-box}
         .short-inp:focus{border-color:var(--p);outline:none}
 
-        /* FOOTER NAV & GRID */
+        /* FOOTER & CHAT */
         .footer-nav{background:white;padding:15px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
         #grid-panel{position:absolute;bottom:70px;left:0;right:0;background:white;padding:20px;border-top:1px solid #ccc;display:none;box-shadow:0 -5px 20px rgba(0,0,0,0.1);max-height:60vh;overflow-y:auto;z-index:50}
         .grid-sec-title{font-weight:bold;margin:10px 0 5px 0;color:#666;font-size:0.9rem;border-bottom:1px solid #eee;padding-bottom:5px;font-family:'Segoe UI',sans-serif}
@@ -82,7 +93,6 @@
         .q-btn.done{background:#22c55e;color:white;border-color:#22c55e}
         .q-btn.current{border:2px solid var(--p);font-weight:bold;transform:scale(1.1)}
 
-        /* CHATBOT */
         .chat-btn{position:fixed;bottom:90px;right:20px;width:50px;height:50px;background:var(--p);border-radius:50%;color:white;display:flex;justify-content:center;align-items:center;font-size:24px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:900}
         .chat-box{position:fixed;bottom:150px;right:20px;width:320px;height:400px;background:white;border-radius:12px;box-shadow:0 5px 30px rgba(0,0,0,0.15);display:none;flex-direction:column;z-index:900;border:1px solid #eee}
     </style>
@@ -107,7 +117,6 @@
                 <input id="r-pass" type="password" class="inp" placeholder="Mật khẩu">
                 <button class="btn" style="width:100%;background:#16a34a" onclick="doRegister()">Tạo Tài Khoản</button>
             </div>
-            
             <button class="google-btn" onclick="doGoogle()">
                 <svg class="g-icon" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
                 Tiếp tục với Google
@@ -146,16 +155,28 @@
             </div>
 
             <div id="sec-docs" class="section">
-                <div class="card" style="background:white; padding:20px; border-radius:12px;">
-                    <h3>📚 Kho Tài Liệu</h3>
-                    <div style="padding:15px;background:#eff6ff;border-left:4px solid var(--p); margin-bottom:10px;">
-                        <b>📄 Đề cương Ôn tập Chương 1.pdf</b><br>
-                        <a href="#" style="color:var(--p);text-decoration:none">⬇️ Tải xuống</a>
+                <div class="doc-section">
+                    <div class="doc-header">📂 Kho Tài Liệu (PDF)</div>
+                    <div style="background:white; padding:15px; border-radius:8px; border:1px solid #eee;">
+                        <div style="padding:15px;background:#eff6ff;border-left:4px solid var(--p); margin-bottom:10px; border-radius:4px;">
+                            <b>📄 Đề cương Ôn tập Chương 1.pdf</b><br>
+                            <a href="#" style="color:var(--p);text-decoration:none;font-size:0.9rem;margin-top:5px;display:inline-block">⬇️ Tải xuống</a>
+                        </div>
+                        <div style="padding:15px;background:#fdf2f8;border-left:4px solid #db2777; border-radius:4px;">
+                            <b>📄 Bài tập tự luyện (Có đáp án).pdf</b><br>
+                            <a href="#" style="color:#db2777;text-decoration:none;font-size:0.9rem;margin-top:5px;display:inline-block">⬇️ Tải xuống</a>
+                        </div>
                     </div>
-                    <div style="padding:15px;background:#fdf2f8;border-left:4px solid #db2777;">
-                        <b>📄 Bài tập tự luyện (Có đáp án).pdf</b><br>
-                        <a href="#" style="color:#db2777;text-decoration:none">⬇️ Tải xuống</a>
+                </div>
+
+                <div class="doc-section">
+                    <div class="doc-header">🖼️ Góc Infographic (Tóm tắt kiến thức)</div>
+                    
+                    <div class="chapter-title" onclick="toggleInfo('c1')">
+                        Chương 1: Ứng dụng đạo hàm <span style="font-size:0.8em">▼</span>
                     </div>
+                    <div class="info-grid" id="info-c1">
+                        </div>
                 </div>
             </div>
 
@@ -178,6 +199,12 @@
         </div>
     </div>
 
+    <div id="lightbox">
+        <span id="lightbox-close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="">
+        <div id="lightbox-caption"></div>
+    </div>
+
     <div class="chat-btn" onclick="toggleChat()">💬</div>
     <div class="chat-box" id="chat-box">
         <div style="padding:10px;background:var(--p);color:white;font-weight:bold">Trợ lý AI</div>
@@ -191,16 +218,24 @@
         const SHEET="https://script.google.com/macros/s/AKfycbz4rTGYlQhHLZTUMyVlY5Tlcrv81k0UfhEMy_B-62GYfEJTM4s7JCq-ANEm3ofn0QdONA/exec";
         let auth, user, currentQ=0, answers={};
 
-        // --- DỮ LIỆU BÀI GIẢNG ---
+        // DATA
         const LECTURES = [
-            { id: 1, title: "Bài 1: Nguyên hàm cơ bản (Video)", type: "video", url: "https://www.youtube.com/embed/JzHbWqV2q2E" },
-            { id: 2, title: "Bài 2: Phương pháp đổi biến số (Slide)", type: "slide", url: "https://docs.google.com/presentation/d/e/2PACX-1vQ.../embed" },
-            { id: 3, title: "Bài 3: Tính đơn điệu của hàm số (E-learning)", type: "elearning", url: "baigiang-bai1/index.html" }
+            { id: 1, title: "Bài 1: Tính đơn điệu", type: "elearning", url: "baigiang-bai1/index.html" },
+            { id: 2, title: "Bài 2: Cực trị hàm số", type: "elearning", url: "baigiang-bai2/index.html" },
+            { id: 3, title: "Bài 3: GTLN - GTNN", type: "elearning", url: "baigiang-bai3/index.html" }
         ];
 
-        // --- DỮ LIỆU CÂU HỎI (CHUẨN 100%) ---
+        // INFO CHƯƠNG 1 (Chỉ render trong mục Chương 1)
+        const INFO_C1 = [
+            { title: "Sơ đồ: Tính đơn điệu", src: "CHƯƠNG 1/Tính đơn điệu và Cực Trị.png" },
+            { title: "Sơ đồ: GTLN - GTNN", src: "CHƯƠNG 1/GTLN - GTNN của hàm số.png" },
+            { title: "Sơ đồ: Tiệm cận & Đồ thị", src: "CHƯƠNG 1/Đường Tiệm cận của Đồ thị hàm số.png" },
+	    { title: "Sơ đồ: Tiệm cận & Đồ thị", src: "CHƯƠNG 1/Khảo sát hàm số.png" }
+        ];
+
+        // CÂU HỎI
         const QUESTIONS = [
-            // P1 (12 câu)
+            // P1
             {type:1, id:1, q:`Cho tứ diện ABCD, gọi I, J lần lượt là trung điểm của AB và CD. Đẳng thức nào sau đây sai? <img src="img/c1.png" class="q-img" onerror="this.style.display='none'">`, opts:["A. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{AC}+\\vec{BD})\\)", "B. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{DC}+\\vec{AD}+\\vec{BD})\\)", "C. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{AD}+\\vec{BC})\\)", "D. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{AC}+\\vec{BD})\\)"], a:"B"},
             {type:1, id:2, q:`Hàm số có đồ thị như hình vẽ sau đồng biến trên khoảng nào dưới đây? <img src="img/c2.png" class="q-img" onerror="this.style.display='none'">`, opts:["A. (-3; 1)", "B. (-1; 1)", "C. (1; +∞)", "D. (-1; +∞)"], a:"B"},
             {type:1, id:3, q:"Cho hàm số \\(y=\\frac{x-1}{x+1}\\). Khẳng định nào sau đây đúng?", opts:["A. Đồng biến trên R\\{-1}", "B. Nghịch biến trên R\\{-1}", "C. Đồng biến (-∞;-1)U(-1;+∞)", "D. Đồng biến từng khoảng"], a:"D"},
@@ -213,17 +248,17 @@
             {type:1, id:10, q:"Giả sử lượng hàng bán ra x theo giá p là \\(x=\\frac{250-p}{0.01p}\\). Khẳng định đúng?", opts:["A. Tăng khi giá tăng", "B. Giảm khi giá giảm", "C. Ko đổi", "D. Giảm khi giá tăng"], a:"D"},
             {type:1, id:11, q:`Vận tốc chất điểm tăng khi t thuộc khoảng nào? <img src="img/c11.png" class="q-img" onerror="this.style.display='none'">`, opts:["A. (-3; +∞)", "B. (0; 2)", "C. (2; +∞)", "D. (0; +∞)"], a:"C"},
             {type:1, id:12, q:`Hàm số đồng biến trên khoảng nào? <img src="img/c12.png" class="q-img" onerror="this.style.display='none'">`, opts:["A. (0; 1)", "B. (-∞; 4)", "C. (-1; 0)", "D. (1; +∞)"], a:"A"},
-            // P2 (2 câu)
+            // P2
             {type:2, id:13, q:"Trong không gian, cho hai vectơ a và b cùng có độ dài bằng 1, góc 45 độ.", subs:["a) \\(\\vec{a}.\\vec{b}=\\frac{\\sqrt{2}}{2}\\).", "b) \\(|\\vec{a}+\\vec{b}|=2+\\sqrt{2}\\).", "c) \\((\\vec{a}+3\\vec{b}).(\\vec{a}-2\\vec{b})=-5+\\frac{\\sqrt{2}}{2}\\).", "d) \\(|\\vec{a}-\\sqrt{2}\\vec{b}|=0\\)."], ans:["S","S","Đ","Đ"]},
             {type:2, id:14, q:"Xét hàm số \\(y=\\frac{1}{3}x^3+(m+1)x^2+(m^2+2m)x-3\\) m là tham số.", subs:["a) Hàm số nghịch biến trên \\(\\mathbb{R}\\) với mọi giá trị của m.", "b) Hàm số nghịch biến trên khoảng (-1; 1) khi và chỉ khi \\(m \\ge -1\\).", "c) Không tồn tại giá trị m để hàm số đồng biến trên \\(\\mathbb{R}\\).", "d) Tập xác định của hàm số là \\(D=\\mathbb{R}\\setminus\\{3\\}\\)."], ans:["S","S","Đ","S"]},
-            // P3 (4 câu)
+            // P3
             {type:3, id:15, q:`Hằng ngày mực nước của một con kênh lên xuống theo thủy triều. Độ sâu h (m) của mực nước trong kênh tại thời điểm \\(t(h)(0\\le t\\le24)\\) trong ngày được xác định bởi công thức \\(h=2\\cos(\\frac{\\pi t}{12}+\\frac{\\pi}{3})+5\\). Gọi (a;b) là khoảng thời gian trong ngày mà độ sâu của mực nước trong kênh tăng dần. Tính giá trị của \\(a+b\\).`, a:"28"},
             {type:3, id:16, q:`Người ta vận chuyển một thùng hàng có dạng hình hộp chữ nhật bằng cách móc 4 dây cáp vào 4 góc trên của thùng hàng và đầu còn lại móc vào cần cẩu như hình vẽ. <img src="img/p3c2.png" class="q-img" onerror="this.style.display='none'"> Biết rằng các đoạn dây cáp có độ dài bằng nhau và góc tạo bởi hai đoạn dây cáp đối diện nhau là \\(60^{\\circ}\\). Chiếc cần cẩu kéo thùng hàng lên theo phương thẳng đứng. Biết rằng \\(F_{1}, F_{2}, F_{3}, F_{4}\\) chịu được tối đa lực căng là 5 000 N. Hỏi cần cẩu nâng được thùng hàng có khối lượng (đơn vị kg) tối đa là bao nhiêu (làm tròn đến hàng đơn vị)? Lấy \\(g=10~m/s^{2}\\).`, a:"1732"},
             {type:3, id:17, q:`Cho hàm số \\(f(x)=x^{2}-2x\\). Đặt \\(g(x)=f(f(x))+1\\). Giả sử hàm số \\(y=g(x)\\) đồng biến trên khoảng (a;b) với \\(a\\in\\mathbb{R}, b\\in\\mathbb{R}\\). Tính \\(a+b\\sqrt{2}\\).`, a:"1"},
             {type:3, id:18, q:`Thể tích \\(V(cm^{3})\\) của 1kg nước tại nhiệt độ \\(T(0^{\\circ}C\\le T\\le30^{\\circ}C)\\) được tính bởi công thức \\(V(T)=999,87-0,06426T+0,0058043T^{2}-0,0000679T^{3}.\\) Thể tích nước \\(V(T)(0^{\\circ}C\\le T\\le30^{\\circ}C)\\) giảm trong khoảng nhiệt độ \\((a^{\\circ};b^{\\circ});\\) b làm tròn đến hàng đơn vị. Tổng \\(a+b\\) bằng bao nhiêu?`, a:"4"}
         ];
 
-        // LOGIC AUTH
+        // LOGIC
         function switchTab(t){
             document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
             document.querySelectorAll('.f-view').forEach(f=>f.classList.remove('active'));
@@ -235,20 +270,15 @@
         function doGoogle(){auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e=>alert(e.message))}
         function doLogout(){auth.signOut().then(()=>location.reload())}
         
-        // LOGIC NAV & LECTURE
         function nav(id){
             document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
             document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-            
-            const quizSec = document.getElementById('sec-quiz');
+            const qs = document.getElementById('sec-quiz');
             if(id === 'quiz') {
-                quizSec.classList.add('active');
-                quizSec.style.display = 'flex';
-                document.getElementById('footer-nav').style.display='flex';
-                renderQ();
+                qs.classList.add('active'); qs.style.display = 'flex';
+                document.getElementById('footer-nav').style.display='flex'; renderQ();
             } else {
-                quizSec.classList.remove('active');
-                quizSec.style.display = 'none';
+                qs.classList.remove('active'); qs.style.display = 'none';
                 document.getElementById('sec-'+id).classList.add('active');
                 document.getElementById('footer-nav').style.display='none';
             }
@@ -257,8 +287,7 @@
         }
 
         function initLectures() {
-            const list = document.getElementById('lecture-list');
-            if(!list) return;
+            const list = document.getElementById('lecture-list'); if(!list) return;
             let html = '';
             LECTURES.forEach((lec, index) => {
                 html += `<div class="lecture-item" onclick="playLecture(${index})" id="lec-btn-${index}">
@@ -277,14 +306,34 @@
             document.getElementById('main-frame').src = lec.url;
         }
 
-        // LOGIC QUIZ
+        // RENDER INFO CHƯƠNG 1
+        function initInfographics() {
+            const list = document.getElementById('info-c1'); if(!list) return;
+            let html = '';
+            INFO_C1.forEach(info => {
+                html += `<div class="info-card" onclick="openLightbox('${info.src}', '${info.title}')">
+                    <span class="info-tag">Xem</span>
+                    <img src="${info.src}" class="info-img" onerror="this.src='https://via.placeholder.com/300x160?text=Chưa+có+ảnh'">
+                    <div class="info-title">${info.title}</div>
+                </div>`;
+            });
+            list.innerHTML = html;
+        }
+
+        function openLightbox(src, title) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = title;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+
         function renderQ(){
             const q = QUESTIONS[currentQ];
             let html = `<div class="q-card">
                 <div><span class="part-label">Phần ${q.type} - Câu ${q.id}</span></div>
                 <div class="q-content">${q.q}</div>`;
             
-            if(q.type === 1) { // P1
+            if(q.type === 1) { 
                 html += `<div class="opt-list">`;
                 q.opts.forEach(opt => {
                     const val = opt.charAt(0);
@@ -292,7 +341,7 @@
                     html += `<div class="opt-item ${sel}" onclick="saveAns(${q.id}, '${val}')">${opt}</div>`;
                 });
                 html += `</div>`;
-            } else if(q.type === 2) { // P2
+            } else if(q.type === 2) {
                 html += `<table class="tf-table">`;
                 q.subs.forEach((sub, idx) => {
                     const k = `${q.id}_${idx}`;
@@ -304,7 +353,7 @@
                     </td></tr>`;
                 });
                 html += `</table>`;
-            } else { // P3
+            } else {
                 const val = answers[q.id] || '';
                 html += `<input class="short-inp" value="${val}" oninput="saveAns(${q.id}, this.value)" placeholder="Nhập số...">`;
             }
@@ -314,27 +363,15 @@
             updateGrid();
         }
 
-        function saveAns(key, val) {
-            answers[key] = val;
-            renderQ();
-        }
-
-        function moveQ(dir) {
-            const next = currentQ + dir;
-            if(next >= 0 && next < QUESTIONS.length) {
-                currentQ = next;
-                renderQ();
-            }
-        }
+        function saveAns(key, val) { answers[key] = val; renderQ(); }
+        function moveQ(dir) { const next = currentQ + dir; if(next >= 0 && next < QUESTIONS.length) { currentQ = next; renderQ(); } }
 
         function toggleGrid() {
             const p = document.getElementById('grid-panel');
             if(p.style.display === 'block') { p.style.display = 'none'; return; }
-            
             const p1 = QUESTIONS.filter(q=>q.type===1).map((q,i) => renderBtn(q, i)).join('');
-            const p2 = QUESTIONS.filter(q=>q.type===2).map((q,i) => renderBtn(q, i+12)).join(''); // offset 12
-            const p3 = QUESTIONS.filter(q=>q.type===3).map((q,i) => renderBtn(q, i+14)).join(''); // offset 14
-
+            const p2 = QUESTIONS.filter(q=>q.type===2).map((q,i) => renderBtn(q, i+12)).join(''); 
+            const p3 = QUESTIONS.filter(q=>q.type===3).map((q,i) => renderBtn(q, i+14)).join('');
             document.getElementById('grid-p1').innerHTML = p1;
             document.getElementById('grid-p2').innerHTML = p2;
             document.getElementById('grid-p3').innerHTML = p3;
@@ -345,9 +382,7 @@
             let done = false;
             if(q.type===1 && answers[q.id]) done=true;
             if(q.type===3 && answers[q.id]) done=true;
-            if(q.type===2) { // P2: Làm ít nhất 1 ý là xanh
-                for(let k=0; k<4; k++) if(answers[`${q.id}_${k}`]) done=true;
-            }
+            if(q.type===2) { for(let k=0; k<4; k++) if(answers[`${q.id}_${k}`]) done=true; }
             const cls = done ? 'done' : '';
             const cur = idx === currentQ ? 'current' : '';
             return `<button class="q-btn ${cls} ${cur}" onclick="currentQ=${idx};renderQ();toggleGrid()">${q.id}</button>`;
@@ -362,14 +397,12 @@
                 s2 += [0, 0.1, 0.25, 1.0, 1.5][c];
             });
             QUESTIONS.filter(q=>q.type===3).forEach(q=>{ if(answers[q.id]?.trim()===q.a) s3+=1.0; });
-            
             const total = (s1+s2+s3).toFixed(2);
             alert(`Nộp bài thành công!\nTổng điểm: ${total}\n(P1: ${s1}, P2: ${s2}, P3: ${s3})`);
             const fd=new FormData(); fd.append("TenHocSinh",user.email); fd.append("Diem",total);
             fetch(SHEET,{method:'POST',body:fd});
         }
 
-        // CHAT
         function toggleChat(){const b=document.getElementById('chat-box');b.style.display=b.style.display==='flex'?'none':'flex'}
         async function sendChat(){
             const i=document.getElementById('chat-inp'), t=i.value.trim(); if(!t)return;
@@ -380,7 +413,6 @@
             }catch(e){b.innerHTML+=`<div class="msg bot">Lỗi AI</div>`}
         }
 
-        // INIT
         window.onload=()=>{
             try{
                 firebase.initializeApp(CFG); auth=firebase.auth();
@@ -391,6 +423,7 @@
                         document.getElementById('main-app').style.display='flex';
                         document.getElementById('u-name').innerText=u.displayName||u.email;
                         initLectures();
+                        initInfographics();
                     } else {
                         document.getElementById('auth-overlay').style.display='flex';
                         document.getElementById('main-app').style.display='none';
