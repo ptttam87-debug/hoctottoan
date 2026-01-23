@@ -271,7 +271,7 @@
         
         let timerInterval;
         let secondsElapsed = 0;
-        let QUESTIONS = []; // Mảng câu hỏi động (sẽ được trộn)
+        let QUESTIONS = []; // Mảng câu hỏi động
 
         const LECTURES = [
             { id: 1, title: "Bài 1: Tính đơn điệu", type: "elearning", url: "baigiang-bai1/index.html" },
@@ -401,17 +401,15 @@
                 answers = {};
                 
                 // 1. TRỘN ĐỀ MỖI LẦN VÀO THI
-                // Tách các phần
-                let p1 = MASTER_DATA.filter(q => q.type === 1);
-                let p2 = MASTER_DATA.filter(q => q.type === 2);
-                let p3 = MASTER_DATA.filter(q => q.type === 3);
+                // Copy mảng gốc để không làm hỏng dữ liệu
+                let p1 = MASTER_DATA.filter(q => q.type === 1).slice(); 
+                let p2 = MASTER_DATA.filter(q => q.type === 2).slice();
+                let p3 = MASTER_DATA.filter(q => q.type === 3).slice();
                 
-                // Trộn từng phần
                 shuffleArray(p1);
                 shuffleArray(p2);
                 shuffleArray(p3);
                 
-                // Gộp lại thành đề thi mới
                 QUESTIONS = [...p1, ...p2, ...p3];
                 
                 document.getElementById('exam-status').innerText = "ĐANG LÀM BÀI";
@@ -488,7 +486,8 @@
 
         function renderQ() {
             const q = QUESTIONS[currentQ];
-            let html = `<div class="q-card"><div><span class="part-label">Phần ${q.type} - Câu ${q.id}</span></div><div class="q-content">${q.q}</div>`;
+            // SỬA: Hiển thị Câu 1, 2, 3... thay vì Câu ID
+            let html = `<div class="q-card"><div><span class="part-label">Phần ${q.type} - Câu ${currentQ + 1}</span></div><div class="q-content">${q.q}</div>`;
             if(q.type===1) {
                 html+=`<div class="opt-list">`+q.opts.map(o=>{
                     let val = o.charAt(0);
@@ -517,9 +516,10 @@
         function moveQ(d){const n=currentQ+d;if(n>=0&&n<QUESTIONS.length){currentQ=n;renderQ();}}
         function toggleGrid(){const p=document.getElementById('grid-panel');p.style.display=p.style.display==='block'?'none':'block';}
         function updateGrid(){
-            const p1=QUESTIONS.filter(q=>q.type===1).map((q,i)=>renderBtn(q,i)).join('');
-            const p2=QUESTIONS.filter(q=>q.type===2).map((q,i)=>renderBtn(q,i+12)).join('');
-            const p3=QUESTIONS.filter(q=>q.type===3).map((q,i)=>renderBtn(q,i+14)).join('');
+            // SỬA: Hiển thị danh sách nút câu 1, 2, 3...
+            const p1=QUESTIONS.map((q,i)=>renderBtn(q,i)).filter((_,i)=>QUESTIONS[i].type===1).join('');
+            const p2=QUESTIONS.map((q,i)=>renderBtn(q,i)).filter((_,i)=>QUESTIONS[i].type===2).join('');
+            const p3=QUESTIONS.map((q,i)=>renderBtn(q,i)).filter((_,i)=>QUESTIONS[i].type===3).join('');
             document.getElementById('grid-p1').innerHTML=p1;
             document.getElementById('grid-p2').innerHTML=p2;
             document.getElementById('grid-p3').innerHTML=p3;
@@ -529,7 +529,8 @@
             if(q.type===1 && answers[q.id]) done=true;
             if(q.type===3 && answers[q.id]) done=true;
             if(q.type===2) for(let k=0;k<4;k++) if(answers[q.id+'_'+k]) done=true;
-            return `<button class="q-btn ${done?'done':''} ${i===currentQ?'current':''}" onclick="currentQ=${i};renderQ();toggleGrid()">${q.id}</button>`;
+            // SỬA: Nút hiển thị số thứ tự (i+1) thay vì ID
+            return `<button class="q-btn ${done?'done':''} ${i===currentQ?'current':''}" onclick="currentQ=${i};renderQ();toggleGrid()">${i+1}</button>`;
         }
 
         function submitExam() {
@@ -580,7 +581,6 @@
             list.innerHTML = html;
         }
         
-        // SỬA: XEM LẠI BÀI -> HIỂN THỊ ĐÚNG THỨ TỰ GỐC (ĐỂ DỄ DÒ)
         function reviewExam(index) {
             let history = JSON.parse(localStorage.getItem('his_'+user.uid) || "[]");
             let item = history[index];
@@ -589,9 +589,7 @@
             isReviewMode = true; 
             answers = item.answers || {};
             
-            // Khi xem lại, ta load lại danh sách GỐC (không trộn) để học sinh dễ theo dõi
-            // Hoặc nếu muốn xem lại đúng đề đã trộn thì phải lưu mảng câu hỏi vào history (phức tạp hơn)
-            // Ở đây chọn cách: Xem lại trên đề chuẩn.
+            // KHI XEM LẠI: Load lại đề gốc để dễ so sánh (Không trộn)
             QUESTIONS = [...MASTER_DATA]; 
             
             document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
