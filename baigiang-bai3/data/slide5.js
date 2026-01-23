@@ -1,0 +1,9 @@
+(function(){var loadHandler=window['sl_{49D7AEB5-E0C3-4042-ACAF-F795CB905AB5}'];loadHandler&&loadHandler(4, '<div id="spr0_7df20dd"><div id="spr1_7df20dd" class="kern slide"><img id="img3_7df20dd" src="data/img0.png" width="720px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_7df20dd" class="kern slide"><div id="svg0_7df20dd" style="left:26.45px;top:22.9px;"><svg width="664" height="137" viewBox="-0.375 -0.375 664 137"><path fill="#f7fd9d" stroke="#f4f207" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="round" d="M0.375,0.375 h661.6 v135.15 h-661.6 Z"/></svg></div><div id="spr3_7df20dd" style="left:35px;top:28px;"><img id="img0_7df20dd" src="data/img7.png" width="647" height="112" alt="Ví dụ 1. Tìm giá trị lớn nhất và giá trị nhỏ nhất của các hàm số:\
+a) 𝑦=𝑓 𝑥 =2𝑥+3 trên đoạn  −3 ; 1  ;\
+ \
+"/></div><div id="svg1_7df20dd" style="left:26.45px;top:165.883px;"><svg width="664" height="361" viewBox="-0.375 -0.375 664 361"><path fill="#f7fd9d" stroke="#f4f207" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="round" d="M0.375,0.375 h661.6 v358.967 h-661.6 Z"/></svg></div><div id="spr4_7df20dd" style="left:49px;top:182px;"><img id="img1_7df20dd" src="data/img8.png" width="613" height="331" alt="Giải: a) Xét hàm số 𝑓 𝑥 =2𝑥+3 trên đoạn  −3 ; 1  .\
+Với mọi 𝑥∈ −3 ; 1  , ta có 𝑓 𝑥 =2𝑥+3≥−3.\
+ Mặt khác 𝑓 −3 =−3.  Do đó:   min [−3;1]  𝑓 𝑥 =−3. \
+Với mọi 𝑥∈ −3 ; 1  ,  ta có 𝑓 𝑥 =2𝑥+3≤5.  \
+Mặt khác 𝑓 1 =5.  Do đó:   max [−3;1]  𝑓(𝑥)=5. \
+"/></div><div id="spr5_7df20dd" style="left:692.8px;top:513.6px;"><a id="hl0_7df20dd" href="#"><img id="img2_7df20dd" src="data/img9.jpg" width="24" height="24" alt=""/></a></div></div></div>', '{"s":[]}');})();
