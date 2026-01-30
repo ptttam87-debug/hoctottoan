@@ -28,6 +28,25 @@
         .tab.active { color: var(--p); border-bottom: 3px solid var(--p); }
         .f-view { display: none; } .f-view.active { display: block; }
 
+        /* KẾT QUẢ THI ĐẸP MẮT (NEW) */
+        #result-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 11000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .result-card { background: white; width: 90%; max-width: 420px; padding: 40px 30px; border-radius: 24px; text-align: center; position: relative; animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        /* Viền cầu vồng */
+        .result-card::before { content: ''; position: absolute; inset: -5px; z-index: -1; background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); border-radius: 28px; background-size: 400%; animation: glow 20s linear infinite; }
+        .result-card::after { content: ''; position: absolute; inset: 0; background: white; border-radius: 24px; z-index: -1; }
+
+        @keyframes glow { 0% { background-position: 0 0; } 50% { background-position: 400% 0; } 100% { background-position: 0 0; } }
+        @keyframes popUp { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }
+
+        .res-icon { font-size: 80px; margin-bottom: 10px; display: inline-block; animation: bounce 2s infinite; text-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .res-title { font-size: 1.2rem; color: #666; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .res-score { font-size: 4.5rem; font-weight: 800; background: linear-gradient(to right, #2563eb, #db2777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 5px 0; line-height: 1; }
+        .res-time { font-size: 1.1rem; color: #555; background: #f3f4f6; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 20px; font-weight: 600; }
+        .res-msg { font-size: 1.1rem; color: #333; margin-bottom: 30px; line-height: 1.5; font-weight: 500; }
+        .res-btn { background: linear-gradient(135deg, #2563eb, #06b6d4); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); width: 100%; }
+        .res-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5); filter: brightness(1.1); }
+
         /* HEADER & NAV */
         header { background: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); z-index: 100; flex-shrink: 0; }
         .nav-bar { display: flex; justify-content: center; gap: 10px; padding: 10px; background: #fff; border-bottom: 1px solid #eee; flex-shrink: 0; }
@@ -123,7 +142,6 @@
         .chat-btn { position: fixed; bottom: 90px; right: 20px; width: 50px; height: 50px; background: var(--p); border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 900; }
         .chat-box { position: fixed; bottom: 150px; right: 20px; width: 320px; height: 400px; background: white; border-radius: 12px; box-shadow: 0 5px 30px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 900; border: 1px solid #eee; }
 
-        /* RESPONSIVE CHO ĐIỆN THOẠI */
         @media (max-width: 768px) {
             .lecture-layout { flex-direction: column; }
             .lecture-viewer { min-height: 250px; }
@@ -133,6 +151,17 @@
     </style>
 </head>
 <body>
+
+    <div id="result-modal">
+        <div class="result-card">
+            <div class="res-icon">🏆</div>
+            <div class="res-title">Kết Quả Bài Thi</div>
+            <div class="res-score" id="res-score">0.0</div>
+            <div class="res-time" id="res-time">⏱ 00p 00s</div>
+            <div class="res-msg" id="res-msg">Lời nhắn...</div>
+            <button class="res-btn" onclick="closeResult()">Xem Chi Tiết & Giải</button>
+        </div>
+    </div>
 
     <div id="auth-overlay">
         <div class="auth-card">
@@ -204,7 +233,10 @@
             <div id="sec-docs" class="section">
                 <div class="profile-card">
                     <h3 style="margin-top:0">📂 Kho PDF</h3>
-                                        
+                    <div style="padding:10px; background:#eff6ff; border-left:4px solid var(--p); margin-bottom:10px; border-radius:4px;">
+                        <b>📄 Đề cương Ôn tập Chương 1.pdf</b><br><a href="#" style="color:var(--p);text-decoration:none;font-size:0.9rem;">⬇️ Tải xuống</a>
+                    </div>
+                    
                     <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
                         <div style="margin-bottom:5px"><b>📄 Đề 1: Giữa HK1 (Tham khảo).pdf</b></div>
                         <div style="display:flex; gap:10px;">
@@ -212,7 +244,6 @@
                             <a href="ĐỀ 1 - GIỮA HK1-KHỐI 12 - 24 -25.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
                         </div>
                     </div>
-
                     <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
                         <div style="margin-bottom:5px"><b>📄 Đề 2: Giữa HK1 (Tham khảo).pdf</b></div>
                         <div style="display:flex; gap:10px;">
@@ -220,7 +251,6 @@
                             <a href="ĐỀ 2- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
                         </div>
                     </div>
-
                     <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
                         <div style="margin-bottom:5px"><b>📄 Đề 3: Giữa HK1 (Tham khảo).pdf</b></div>
                         <div style="display:flex; gap:10px;">
@@ -228,7 +258,6 @@
                             <a href="ĐỀ 3- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
                         </div>
                     </div>
-
                     <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
                         <div style="margin-bottom:5px"><b>📄 Đề 4: Giữa HK1 (Tham khảo).pdf</b></div>
                         <div style="display:flex; gap:10px;">
@@ -240,13 +269,10 @@
                 
                 <div class="doc-section">
                     <div class="doc-header">🖼️ Góc Infographic & Phiếu Học Tập</div>
-                    
                     <div class="chapter-title" onclick="toggleInfo('c1')">📚 Chương 1: Ứng dụng đạo hàm <span style="font-size:0.8em">▼</span></div>
                     <div class="info-grid show" id="info-c1"></div>
-
                     <div class="chapter-title" onclick="toggleInfo('c3')">📚 Chương 3: Thống kê <span style="font-size:0.8em">▼</span></div>
                     <div class="info-grid" id="info-c3"></div>
-
                     <div class="chapter-title" onclick="toggleInfo('pht')">📝 Phiếu học tập <span style="font-size:0.8em">▼</span></div>
                     <div class="info-grid" id="info-pht"></div>
                 </div>
@@ -309,7 +335,6 @@
         <img id="lightbox-img" src="">
         <div id="lightbox-caption" style="color:white; margin-top:15px; font-weight:bold"></div>
     </div>
-
     <div id="pdf-modal">
         <div class="pdf-container">
             <div class="pdf-header">
@@ -330,20 +355,18 @@
     <script>
         const CFG={apiKey:"AIzaSyC1RdQm6whSY6afs5ueEXYaBl6E31oIcS0",authDomain:"mathpro-db.firebaseapp.com",projectId:"mathpro-db"};
         const GEMINI="AIzaSyBKWlAMRP32ubiF3WoLQR57z3RamEhlJy0";
-        // URL WEB APP CỦA BÁC
         const SHEET="https://script.google.com/macros/s/AKfycbw91ovDMxBgT2yuBcoK0gc_bznQpwaUVyXowUD_C3kBJOWImpOTQJeEgcuVrBa32zfVmA/exec";
         let auth, user, currentQ=0, answers={}, userData={name:"", class:""}, isReviewMode = false;
         
         let timerInterval;
         let secondsElapsed = 0;
-        let QUESTIONS = []; // Mảng câu hỏi động
+        let QUESTIONS = []; 
 
-        // --- DANH SÁCH BÀI GIẢNG (ĐÃ FIX LỖI DẤU PHẨY) ---
         const LECTURES = [
             { id: 1, title: "Bài 1: Tính đơn điệu", type: "elearning", url: "baigiang-bai1/index.html" },
             { id: 2, title: "Bài 2: Cực trị hàm số", type: "elearning", url: "baigiang-bai2/index.html" },
             { id: 3, title: "Bài 3: GTLN - GTNN", type: "elearning", url: "baigiang-bai3/index.html" },
-	    { id: 4, title: "Bài 3: Đường Tiệm Cận", type: "elearning", url: "baigiang-bai4/index.html" },
+	        { id: 4, title: "Bài 3: Đường Tiệm Cận", type: "elearning", url: "baigiang-bai4/index.html" },
             { id: 5, title: "Bài 5: Khảo sát hàm số", type: "elearning", url: "baigiang-bai5/index.html" }
         ];
         
@@ -413,9 +436,7 @@
             }
         }
 
-        function standardizeName(str) {
-            return str.replace(/\s+/g, ' ').trim().toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase());
-        }
+        function standardizeName(str) { return str.replace(/\s+/g, ' ').trim().toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase()); }
 
         function saveUserInfo() {
             let name = document.getElementById('u-fullname').value;
@@ -455,7 +476,6 @@
             return `${h}h ${m}p ${s}s`; 
         }
 
-        // --- TRỘN MẢNG ---
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -464,18 +484,13 @@
             return array;
         }
 
-        // --- NAV & TOP 10 & SHUFFLE ---
         function nav(id){
-            // STOP VIDEO KHI RỜI TAB BÀI GIẢNG
             if(id !== 'lecture') {
                 const iframe = document.getElementById('main-frame');
-                if(iframe) {
-                    iframe.src = ""; // Ngắt nguồn video/audio
-                    iframe.style.display = 'none';
-                }
+                if(iframe) { iframe.src = ""; iframe.style.display = 'none'; }
                 const place = document.getElementById('viewer-placeholder');
                 if(place) place.style.display = 'flex';
-                document.getElementById('fullscreen-btn').style.display='none'; // Ẩn nút phóng to
+                document.getElementById('fullscreen-btn').style.display='none';
                 document.querySelectorAll('.lecture-item').forEach(el => el.classList.remove('active'));
             }
 
@@ -483,17 +498,11 @@
             document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
             const qs = document.getElementById('sec-quiz');
             if(id === 'quiz') {
-                isReviewMode = false; 
-                answers = {};
-                
+                isReviewMode = false; answers = {};
                 let p1 = MASTER_DATA.filter(q => q.type === 1).slice(); 
                 let p2 = MASTER_DATA.filter(q => q.type === 2).slice();
                 let p3 = MASTER_DATA.filter(q => q.type === 3).slice();
-                
-                shuffleArray(p1);
-                shuffleArray(p2);
-                shuffleArray(p3);
-                
+                shuffleArray(p1); shuffleArray(p2); shuffleArray(p3);
                 QUESTIONS = [...p1, ...p2, ...p3];
                 
                 document.getElementById('exam-status').innerText = "ĐANG LÀM BÀI";
@@ -501,9 +510,7 @@
                 document.getElementById('submit-btn').style.display = "block";
                 qs.classList.add('active'); qs.style.display='flex';
                 document.getElementById('footer-nav').style.display='flex';
-                
-                currentQ = 0; 
-                startTimer(); renderQ(); fetchTop10();
+                currentQ = 0; startTimer(); renderQ(); fetchTop10();
             } else {
                 stopTimer();
                 qs.classList.remove('active'); qs.style.display='none';
@@ -514,7 +521,6 @@
             if(map[id]!==undefined) document.querySelectorAll('.nav-bar .nav-btn')[map[id]].classList.add('active');
         }
 
-        // --- PDF VIEWER (XEM PDF) ---
         function viewPDF(url) {
             document.getElementById('pdf-title').innerText = url;
             document.getElementById('pdf-frame').src = url;
@@ -524,7 +530,6 @@
         function fetchTop10() {
             document.getElementById('top-loading').style.display = 'block';
             document.getElementById('top-list').innerHTML = '';
-            
             fetch(SHEET)
             .then(res => res.json())
             .then(data => {
@@ -533,19 +538,11 @@
                 data.forEach((s, i) => {
                     let rank = i===0?'top-1':(i===1?'top-2':(i===2?'top-3':''));
                     let icon = i===0?'🥇':(i===1?'🥈':(i===2?'🥉':`#${i+1}`));
-                    html += `<li class="top-item">
-                        <div style="flex:1"><span class="top-rank ${rank}">${icon}</span> ${s.name} (${s.class})</div>
-                        <div style="text-align:right">
-                            <span style="font-weight:bold;color:var(--p)">${s.score}</span>
-                            <div class="top-time">${s.timeStr}</div>
-                        </div>
-                    </li>`;
+                    html += `<li class="top-item"><div style="flex:1"><span class="top-rank ${rank}">${icon}</span> ${s.name} (${s.class})</div><div style="text-align:right"><span style="font-weight:bold;color:var(--p)">${s.score}</span><div class="top-time">${s.timeStr}</div></div></li>`;
                 });
                 document.getElementById('top-list').innerHTML = html;
             })
-            .catch(err => {
-                document.getElementById('top-loading').innerText = 'Chưa có dữ liệu';
-            });
+            .catch(err => { document.getElementById('top-loading').innerText = 'Chưa có dữ liệu'; });
         }
 
         function initLectures() {
@@ -558,7 +555,7 @@
             document.getElementById('viewer-placeholder').style.display = 'none';
             document.getElementById('main-frame').style.display = 'block';
             document.getElementById('main-frame').src = LECTURES[i].url;
-            document.getElementById('fullscreen-btn').style.display = 'block'; // Hiện nút phóng to
+            document.getElementById('fullscreen-btn').style.display = 'block';
         }
 
         function toggleFullscreen() {
@@ -575,13 +572,7 @@
         function initInfographics() {
             ['c1', 'c3', 'pht'].forEach(id => {
                 const list = document.getElementById('info-'+id); if(!list) return;
-                list.innerHTML = INFO_DATA[id].map(inf => 
-                    `<div class="info-card" onclick="openLightbox('${inf.src}', '${inf.title}')">
-                        <span style="position:absolute;top:5px;right:5px;background:rgba(0,0,0,0.6);color:white;padding:2px 5px;border-radius:4px;font-size:0.8rem">Xem</span>
-                        <img src="${inf.src}" class="info-img" onerror="this.src='https://via.placeholder.com/300x160?text=Chưa+có+ảnh'">
-                        <div class="info-title">${inf.title}</div>
-                    </div>`
-                ).join('');
+                list.innerHTML = INFO_DATA[id].map(inf => `<div class="info-card" onclick="openLightbox('${inf.src}', '${inf.title}')"><span style="position:absolute;top:5px;right:5px;background:rgba(0,0,0,0.6);color:white;padding:2px 5px;border-radius:4px;font-size:0.8rem">Xem</span><img src="${inf.src}" class="info-img" onerror="this.src='https://via.placeholder.com/300x160?text=Chưa+có+ảnh'"><div class="info-title">${inf.title}</div></div>`).join('');
             });
         }
         function toggleInfo(id) { document.getElementById('info-'+id).classList.toggle('show'); }
@@ -633,6 +624,7 @@
             return `<button class="q-btn ${done?'done':''} ${i===currentQ?'current':''}" onclick="currentQ=${i};renderQ();toggleGrid()">${i+1}</button>`;
         }
 
+        // --- SUBMIT EXAM & SHOW MODAL ---
         function submitExam() {
             if(isReviewMode) return;
             stopTimer();
@@ -645,12 +637,16 @@
             
             const total = (s1+s2+s3).toFixed(2);
             let msg = ""; let t = parseFloat(total);
-            if(t < 5) msg = "Hãy cố gắng làm lại đừng nản để kết quả cao hơn!";
-            else if(t < 7) msg = "Hãy cố gắng làm lại để đạt kết quả cao hơn!";
-            else if(t < 9) msg = "Bạn sắp về đích rồi chỉ cần cố thêm chút nữa!";
-            else msg = "Bạn hoàn thành tốt lắm!";
+            if(t < 5) msg = "Cố gắng hơn nhé! Đừng nản chí!";
+            else if(t < 7) msg = "Khá tốt! Hãy ôn tập thêm để đạt điểm cao hơn!";
+            else if(t < 9) msg = "Giỏi lắm! Chỉ còn một chút nữa là tuyệt đối!";
+            else msg = "Xuất sắc! Bạn là thiên tài toán học!";
 
-            alert(`KẾT QUẢ: ${total} điểm\nThời gian: ${timeString}\n\n${msg}`);
+            // SHOW MODAL
+            document.getElementById('res-score').innerText = total;
+            document.getElementById('res-time').innerText = "⏱ " + timeString;
+            document.getElementById('res-msg').innerText = msg;
+            document.getElementById('result-modal').style.display = 'flex';
             
             saveHistory(total, answers);
             
@@ -660,6 +656,16 @@
             fd.append("Diem", total);
             fd.append("ThoiGian", timeString);
             fetch(SHEET, {method:'POST', body:fd});
+        }
+
+        // --- CLOSE RESULT & REVIEW ---
+        function closeResult() {
+            document.getElementById('result-modal').style.display = 'none';
+            // Chuyển sang chế độ xem lại bài
+            // Lấy bài làm mới nhất (vừa lưu)
+            let history = JSON.parse(localStorage.getItem('his_'+user.uid) || "[]");
+            let latestIdx = history.length - 1;
+            reviewExam(latestIdx);
         }
 
         function saveHistory(score, userAnswers) {
