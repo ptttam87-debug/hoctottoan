@@ -103,8 +103,15 @@
         .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--p); }
         .info-img { width: 100%; height: 140px; object-fit: cover; }
         .info-title { padding: 10px; font-weight: 600; font-size: 0.9rem; text-align: center; }
-        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: none; justify-content: center; align-items: center; flex-direction: column; }
+        
+        /* LIGHTBOX & PDF MODAL */
+        #lightbox, #pdf-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: none; justify-content: center; align-items: center; flex-direction: column; }
         #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 4px; }
+        
+        .pdf-container { width: 90%; height: 90%; background: white; border-radius: 8px; position: relative; display: flex; flex-direction: column; }
+        .pdf-header { padding: 10px 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-weight: bold; background: #f9fafb; border-radius: 8px 8px 0 0; }
+        .pdf-frame { flex: 1; width: 100%; border: none; border-radius: 0 0 8px 8px; }
+
         .chat-btn { position: fixed; bottom: 90px; right: 20px; width: 50px; height: 50px; background: var(--p); border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 900; }
         .chat-box { position: fixed; bottom: 150px; right: 20px; width: 320px; height: 400px; background: white; border-radius: 12px; box-shadow: 0 5px 30px rgba(0,0,0,0.15); display: none; flex-direction: column; z-index: 900; border: 1px solid #eee; }
     </style>
@@ -180,20 +187,51 @@
             <div id="sec-docs" class="section">
                 <div class="profile-card">
                     <h3 style="margin-top:0">📂 Kho PDF</h3>
-                    <div style="padding:10px; background:#eff6ff; border-left:4px solid var(--p); margin-bottom:10px; border-radius:4px;">
-                        <b>📄 Đề cương Ôn tập Chương 1.pdf</b><br><a href="#" style="color:var(--p);text-decoration:none;font-size:0.9rem;">⬇️ Tải xuống</a>
+                    <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
+                        <div style="margin-bottom:5px"><b>📄 Đề 1: Giữa HK1 (Tham khảo).pdf</b></div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="nav-btn" style="padding:5px 15px; background:white; border:1px solid #db2777; color:#db2777; font-size:0.8rem" onclick="viewPDF('ĐỀ 1 - GIỮA HK1-KHỐI 12 - 24 -25.pdf')">👁️ Xem ngay</button>
+                            <a href="ĐỀ 1 - GIỮA HK1-KHỐI 12 - 24 -25.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
+                        </div>
                     </div>
-                    <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px;">
-                        <b>📄 Bài tập tự luyện (Có đáp án).pdf</b><br><a href="#" style="color:#db2777;text-decoration:none;font-size:0.9rem;">⬇️ Tải xuống</a>
+
+                    
+                    <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
+                        <div style="margin-bottom:5px"><b>📄 Đề 2: Giữa HK1 (Tham khảo).pdf</b></div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="nav-btn" style="padding:5px 15px; background:white; border:1px solid #db2777; color:#db2777; font-size:0.8rem" onclick="viewPDF('ĐỀ 2- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf')">👁️ Xem ngay</button>
+                            <a href="ĐỀ 2- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
+                        </div>
+                    </div>
+
+                    <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
+                        <div style="margin-bottom:5px"><b>📄 Đề 3: Giữa HK1 (Tham khảo).pdf</b></div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="nav-btn" style="padding:5px 15px; background:white; border:1px solid #db2777; color:#db2777; font-size:0.8rem" onclick="viewPDF('ĐỀ 3- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf')">👁️ Xem ngay</button>
+                            <a href="ĐỀ 3- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
+                        </div>
+                    </div>
+
+                    <div style="padding:10px; background:#fdf2f8; border-left:4px solid #db2777; border-radius:4px; margin-top:10px;">
+                        <div style="margin-bottom:5px"><b>📄 Đề 4: Giữa HK1 (Tham khảo).pdf</b></div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="nav-btn" style="padding:5px 15px; background:white; border:1px solid #db2777; color:#db2777; font-size:0.8rem" onclick="viewPDF('ĐỀ 4- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf')">👁️ Xem ngay</button>
+                            <a href="ĐỀ 4- GIỮA HK1-KHỐI 12 - ĐỀ THAM KHẢO.pdf" download style="color:#db2777;text-decoration:none;font-size:0.9rem; align-self:center;">⬇️ Tải xuống</a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="doc-section">
-                    <div class="doc-header">🖼️ Góc Infographic</div>
+                    <div class="doc-header">🖼️ Góc Infographic & Phiếu Học Tập</div>
+                    
                     <div class="chapter-title" onclick="toggleInfo('c1')">📚 Chương 1: Ứng dụng đạo hàm <span style="font-size:0.8em">▼</span></div>
                     <div class="info-grid show" id="info-c1"></div>
+
                     <div class="chapter-title" onclick="toggleInfo('c3')">📚 Chương 3: Thống kê <span style="font-size:0.8em">▼</span></div>
                     <div class="info-grid" id="info-c3"></div>
+
+                    <div class="chapter-title" onclick="toggleInfo('pht')">📝 Phiếu học tập <span style="font-size:0.8em">▼</span></div>
+                    <div class="info-grid" id="info-pht"></div>
                 </div>
             </div>
 
@@ -255,6 +293,16 @@
         <div id="lightbox-caption" style="color:white; margin-top:15px; font-weight:bold"></div>
     </div>
 
+    <div id="pdf-modal">
+        <div class="pdf-container">
+            <div class="pdf-header">
+                <span id="pdf-title">Tài liệu</span>
+                <button onclick="document.getElementById('pdf-modal').style.display='none'" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:#ef4444">×</button>
+            </div>
+            <iframe id="pdf-frame" class="pdf-frame" src=""></iframe>
+        </div>
+    </div>
+
     <div class="chat-btn" onclick="toggleChat()">💬</div>
     <div class="chat-box" id="chat-box">
         <div style="padding:10px;background:var(--p);color:white;font-weight:bold">Trợ lý AI</div>
@@ -292,10 +340,15 @@
                 { title: "Sơ đồ: Khoảng Biến thiên và Khoảng tứ phân vị", src: "CHƯƠNG 3/Khoảng Biến thiên và Khoảng tứ phân vị.png" }, 
                 { title: "Sơ đồ: Phân bố tần số ghép lớp", src: "CHƯƠNG 3/Phân bố tần số ghép lớp.jpg" },
                 { title: "Sơ đồ: Thống Kê 12 _ tổng hợp", src: "CHƯƠNG 3/Thống Kê 12 _ tổng hợp.png" }
+            ],
+            pht: [
+                { title: "Phiếu học tập: Tính đơn điệu", src: "PHIẾU HỌC TẬP/Tính đơn điệu.png" }, 
+                { title: "Phiếu học tập: Cực trị hàm số", src: "PHIẾU HỌC TẬP/Cực trị.png" },
+                { title: "Phiếu học tập: GTLN - GTNN", src: "PHIẾU HỌC TẬP/GTLN - GTNN.png" }, 
+                { title: "Phiếu học tập: Tiệm cận", src: "PHIẾU HỌC TẬP/Khảo Sát Hàm Số.png" }
             ]
         };
 
-        // DỮ LIỆU GỐC (KHÔNG THAY ĐỔI)
         const MASTER_DATA = [
             {type:1, id:1, q:`Cho tứ diện ABCD, gọi I, J lần lượt là trung điểm của AB và CD. Đẳng thức nào sau đây sai? <img src="img/c1.png" class="q-img" onerror="this.style.display='none'">`, opts:["A. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{AC}+\\vec{BD})\\)", "B. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{DC}+\\vec{AD}+\\vec{BD})\\)", "C. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{AD}+\\vec{BC})\\)", "D. \\(\\vec{IJ}=\\frac{1}{2}(\\vec{AC}+\\vec{BD})\\)"], a:"B"},
             {type:1, id:2, q:`Hàm số có đồ thị như hình vẽ sau đồng biến trên khoảng nào dưới đây? <img src="img/c2.png" class="q-img" onerror="this.style.display='none'">`, opts:["A. (-3; 1)", "B. (-1; 1)", "C. (1; +∞)", "D. (-1; +∞)"], a:"B"},
@@ -402,8 +455,6 @@
                 isReviewMode = false; 
                 answers = {};
                 
-                // 1. TRỘN ĐỀ MỖI LẦN VÀO THI
-                // Copy mảng gốc để không làm hỏng dữ liệu
                 let p1 = MASTER_DATA.filter(q => q.type === 1).slice(); 
                 let p2 = MASTER_DATA.filter(q => q.type === 2).slice();
                 let p3 = MASTER_DATA.filter(q => q.type === 3).slice();
@@ -420,7 +471,7 @@
                 qs.classList.add('active'); qs.style.display='flex';
                 document.getElementById('footer-nav').style.display='flex';
                 
-                currentQ = 0; // Reset về câu đầu
+                currentQ = 0; 
                 startTimer(); renderQ(); fetchTop10();
             } else {
                 stopTimer();
@@ -430,6 +481,13 @@
             }
             const map = {'lecture':0, 'docs':1, 'quiz':2};
             if(map[id]!==undefined) document.querySelectorAll('.nav-bar .nav-btn')[map[id]].classList.add('active');
+        }
+
+        // --- PDF VIEWER (XEM PDF) ---
+        function viewPDF(url) {
+            document.getElementById('pdf-title').innerText = url;
+            document.getElementById('pdf-frame').src = url;
+            document.getElementById('pdf-modal').style.display = 'flex';
         }
 
         function fetchTop10() {
@@ -472,7 +530,7 @@
         }
 
         function initInfographics() {
-            ['c1', 'c3'].forEach(id => {
+            ['c1', 'c3', 'pht'].forEach(id => {
                 const list = document.getElementById('info-'+id); if(!list) return;
                 list.innerHTML = INFO_DATA[id].map(inf => 
                     `<div class="info-card" onclick="openLightbox('${inf.src}', '${inf.title}')">
@@ -488,7 +546,6 @@
 
         function renderQ() {
             const q = QUESTIONS[currentQ];
-            // SỬA: Hiển thị Câu 1, 2, 3... thay vì Câu ID
             let html = `<div class="q-card"><div><span class="part-label">Phần ${q.type} - Câu ${currentQ + 1}</span></div><div class="q-content">${q.q}</div>`;
             if(q.type===1) {
                 html+=`<div class="opt-list">`+q.opts.map(o=>{
@@ -518,7 +575,6 @@
         function moveQ(d){const n=currentQ+d;if(n>=0&&n<QUESTIONS.length){currentQ=n;renderQ();}}
         function toggleGrid(){const p=document.getElementById('grid-panel');p.style.display=p.style.display==='block'?'none':'block';}
         function updateGrid(){
-            // SỬA: Hiển thị danh sách nút câu 1, 2, 3...
             const p1=QUESTIONS.map((q,i)=>renderBtn(q,i)).filter((_,i)=>QUESTIONS[i].type===1).join('');
             const p2=QUESTIONS.map((q,i)=>renderBtn(q,i)).filter((_,i)=>QUESTIONS[i].type===2).join('');
             const p3=QUESTIONS.map((q,i)=>renderBtn(q,i)).filter((_,i)=>QUESTIONS[i].type===3).join('');
@@ -531,7 +587,6 @@
             if(q.type===1 && answers[q.id]) done=true;
             if(q.type===3 && answers[q.id]) done=true;
             if(q.type===2) for(let k=0;k<4;k++) if(answers[q.id+'_'+k]) done=true;
-            // SỬA: Nút hiển thị số thứ tự (i+1) thay vì ID
             return `<button class="q-btn ${done?'done':''} ${i===currentQ?'current':''}" onclick="currentQ=${i};renderQ();toggleGrid()">${i+1}</button>`;
         }
 
@@ -590,8 +645,6 @@
             
             isReviewMode = true; 
             answers = item.answers || {};
-            
-            // KHI XEM LẠI: Load lại đề gốc để dễ so sánh (Không trộn)
             QUESTIONS = [...MASTER_DATA]; 
             
             document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
