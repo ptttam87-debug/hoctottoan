@@ -1,0 +1,9 @@
+(function(){var loadHandler=window['sl_{6CB0795C-10F9-4995-B8F6-4C2791EFDD44}'];loadHandler&&loadHandler(16, '<div id="spr0_da0e9ed"><div id="spr1_da0e9ed" class="kern slide"><img id="img3_da0e9ed" src="data/img0.png" width="720px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_da0e9ed" class="kern slide"><div id="svg0_da0e9ed" style="left:28.45px;top:4.84px;"><svg width="664" height="516" viewBox="-0.375 -0.375 664 516"><path fill="#f7fd9d" stroke="#f4f207" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="round" d="M0.375,0.375 h661.6 v513.61 h-661.6 Z"/></svg></div><div id="spr3_da0e9ed" style="left:37px;top:21px;"><img id="img0_da0e9ed" src="data/img34.png" width="647" height="476" alt="b) 𝑔 𝑥 =  𝑥 2 −3𝑥+1 𝑥−2 \
+Giải: Tập xác định: D = ℝ\\{2}. \
+Ta có  lim 𝑥→+∞   𝑔(𝑥) 𝑥  =  lim 𝑥→+∞    𝑥 2 −3𝑥+1 𝑥(𝑥−2)  =1=𝑎,   \
+  lim 𝑥→+∞ [𝑔 𝑥 −𝑥] =  lim 𝑥→+∞     𝑥 2 −3𝑥+1 𝑥−2 −𝑥   \
+                                =  lim 𝑥→+∞   −𝑥+1 𝑥−2  =−1=𝑏\
+Suy ra đường thẳng y = x – 1 là một tiệm cận xiên của đồ thị hàm số.\
+Chú ý:   lim 𝑥→ 2 +   𝑔(𝑥) =−∞,  lim 𝑥→ 2 −   𝑔 𝑥  =+∞\
+Suy ra đường thẳng x = 2 là một tiệm cận đứng của đồ thị hàm số.\
+"/></div><div id="spr4_da0e9ed" style="left:473.808px;top:20.8px;"><img id="img1_da0e9ed" src="data/img35.png" width="217" height="238" alt="" style="left:-0.004px;top:-0.2px;"/></div><div id="spr5_da0e9ed" style="left:696px;top:516px;"><a id="hl0_da0e9ed" href="#"><img id="img2_da0e9ed" src="data/img9.png" width="24" height="24" alt=""/></a></div></div></div>', '{"s":[]}');})();

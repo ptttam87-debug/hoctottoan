@@ -1,0 +1,6 @@
+(function(){var loadHandler=window['sl_{6CB0795C-10F9-4995-B8F6-4C2791EFDD44}'];loadHandler&&loadHandler(6, '<div id="spr0_da05500"><div id="spr1_da05500" class="kern slide"><img id="img2_da05500" src="data/img0.png" width="720px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_da05500" class="kern slide"><div id="svg0_da05500" style="left:34.85px;top:70.11px;"><svg width="664" height="290" viewBox="-0.375 -0.375 664 290"><path fill="#f7fd9d" stroke="#f4f207" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="round" d="M0.375,0.375 h661.6 v287.54 h-661.6 Z"/></svg></div><div id="spr3_da05500" style="left:57px;top:92px;"><img id="img0_da05500" src="data/img17.png" width="608" height="255" alt="c) 𝑦=    𝑥 2 +𝑥  𝑥−1  \
+Giải: Tập xác định: D = (;1]  [0;+)\\{1}\
+Ta có:   lim 𝑥→ 1 +       𝑥 2 +𝑥  𝑥−1  =+∞  ,  lim 𝑥→ 1 −       𝑥 2 +𝑥  𝑥−1  =−∞\
+Suy ra đường thẳng x = 1 là một tiệm cận đứng của đồ thị hàm số.\
+\
+"/></div><div id="spr4_da05500" style="left:696.857px;top:512.571px;"><a id="hl0_da05500" href="#"><img id="img1_da05500" src="data/img9.png" width="24" height="24" alt=""/></a></div></div></div>', '{"s":[]}');})();

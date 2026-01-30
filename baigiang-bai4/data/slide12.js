@@ -1,0 +1,7 @@
+(function(){var loadHandler=window['sl_{6CB0795C-10F9-4995-B8F6-4C2791EFDD44}'];loadHandler&&loadHandler(11, '<div id="spr0_da0a523"><div id="spr1_da0a523" class="kern slide"><img id="img3_da0a523" src="data/img0.png" width="720px" height="540px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_da0a523" class="kern slide"><div id="spr3_da0a523" style="left:25.6px;top:24.27px;"><div id="svg0_da0a523" style="top:1.6px;"><svg width="676" height="478" viewBox="0 0 676 478"><path fill="#f7fd9d" d="M0,0 h675.2 v477.978 h-675.2 Z"/></svg></div><div id="spr4_da0a523" style="left:21.4px;top:22.73px;"><img id="img0_da0a523" src="data/img25.png" width="604" height="446" alt="b) 𝑦=    𝑥    𝑥 −2 \
+Giải: Tập xác định: D = [0; +)\\{4}\
+Ta có:   lim 𝑥→+∞     𝑥    𝑥 −2  =1\
+Suy ra đường thẳng y = 1 là một \
+tiệm cận ngang của đồ thị hàm số.\
+Chú ý:   lim 𝑥→ 4 +      𝑥    𝑥 −2  =+∞,  lim 𝑥→ 4 −      𝑥    𝑥 −2  =−∞\
+Suy ra đường thẳng x = 4 là một tiệm cận đứng của đồ thị hàm số."/></div><div id="spr5_da0a523" style="left:441.6px;"><img id="img1_da0a523" src="data/img26.png" width="237" height="253" alt="" style="left:-0.1px;top:-0.1px;"/></div></div><div id="spr6_da0a523" style="left:696px;top:514.13px;"><a id="hl0_da0a523" href="#"><img id="img2_da0a523" src="data/img9.png" width="24" height="24" alt=""/></a></div></div></div>', '{"s":[]}');})();
